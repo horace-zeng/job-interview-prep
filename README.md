@@ -46,7 +46,10 @@ HTML 结构配平 / id 唯一 / 锚点可达 / PDF 命名目标覆盖率 / 页�
 ```
 job-interview-prep/
 ├── SKILL.md                       # 触发条件 + 10 步流程 + 输出契约 + 失败处理
+├── README.md                      # 本文件
+├── LICENSE                        # MIT
 ├── references/
+│   ├── README.md                  # 何时读哪一份 reference 的索引
 │   ├── research-playbook.md       # 公司/财报/岗位属性/文件清单/查证纪律/面经检索
 │   ├── question-bank.md           # 8 种面试形式对照表、追问树、群面七块打法、反问
 │   ├── answer-format.md           # 三段式写法 + 差/好答案对照 + 分层编排
@@ -63,21 +66,30 @@ Mavis 支持从 Git URL 直接安装 skill（repo 根目录必须含 `SKILL.md`�
 
 ```bash
 # 全局安装（所有 agent 可见）
-git clone https://github.com/<你的用户名>/job-interview-prep.git ~/.minimax/skills/job-interview-prep
+git clone https://github.com/horace-zeng/job-interview-prep.git ~/.minimax/skills/job-interview-prep
 
-# 或只装给一个 agent
-git clone https://github.com/<你的用户名>/job-interview-prep.git ~/.minimax/agents/<agent>/skills/job-interview-prep
+# 或只装给某一个 agent（把 mavis 换成你的 agent 名）
+git clone https://github.com/horace-zeng/job-interview-prep.git ~/.minimax/agents/mavis/skills/job-interview-prep
 ```
 
 Windows PowerShell：
 
 ```powershell
-git clone https://github.com/<你的用户名>/job-interview-prep.git "$env:USERPROFILE\.minimax\skills\job-interview-prep"
+git clone https://github.com/horace-zeng/job-interview-prep.git "$env:USERPROFILE\.minimax\skills\job-interview-prep"
 ```
 
 也可以直接把整个目录复制到上述位置。**技能在下一个 session 生效，不需要重启运行时。**
 
 验证安装：`skill({ name: "job-interview-prep" })` 能读到 `Location:` 即成功。
+
+### 装不上？先看这两条
+
+| 症状 | 原因 | 处理 |
+|---|---|---|
+| `error: The requested URL returned error: 400` | clone 地址里还残留 `<你的用户名>` 这类占位符 | `<` `>` 不是合法 URL 字符，GitHub 会直接拒收；把占位符换成真实用户名再试 |
+| `Repository not found` | 用户名或仓库名拼错，或仓库不是公开的 | 核对仓库地址；公开仓库 clone 不需要认证 |
+
+> 占位符是这类 README 最常见的残留物。**clone 报 400，八成不是 GitHub 挂了，是地址里还有尖括号。**
 
 ## 触发语
 
@@ -127,4 +139,4 @@ git clone https://github.com/<你的用户名>/job-interview-prep.git "$env:USER
 
 ## License
 
-MIT
+MIT — 详见 [LICENSE](LICENSE)。Copyright (c) 2026 Haorong Zeng。
