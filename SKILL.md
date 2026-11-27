@@ -7,12 +7,16 @@ description: |
   scripts structured as keyword anchors -> reasoning chain -> full spoken answer,
   with follow-up trees for structured interviews, group-interview drills, role-targeted
   self-introductions, reverse questions, multi-offer comparison and post-interview
-  debrief. Use this skill whenever the user asks to prepare for a job or role interview,
-  or mentions a JD, 职位描述, 面经, 群面, 结构化面试, 无领导小组, 逐字稿, 自我介绍,
-  反问, offer 对比 or 面试复盘 — including phrasings like "帮我准备这个岗位面试",
-  "投了 X 公司", "这题怎么答", "群面 XX 题打法". Do NOT use it for resume writing with
-  no research deliverable, pure company or industry research with no interview output,
-  or general career counselling with no artefact to produce.
+  debrief. It also covers the step before that — discovering which jobs to apply to and
+  screening them for eligibility. Use this skill whenever the user asks to prepare for a
+  job or role interview, or mentions a JD, 职位描述, 面经, 群面, 结构化面试, 无领导小组,
+  逐字稿, 自我介绍, 反问, offer 对比 or 面试复盘 — including phrasings like
+  "帮我准备这个岗位面试", "投了 X 公司", "这题怎么答", "群面 XX 题打法". Also use it when
+  the user has no JD yet and asks which jobs to pursue: "帮我检索岗位", "有什么岗位可以投",
+  "某城市/某方向有哪些在招岗", "出一份投递清单", "这些岗位值不值得投", "秋招投哪些公司".
+  Do NOT use it for resume writing with no research deliverable, for pure industry research
+  that produces neither a job list nor interview output, or for general career counselling
+  with no artefact to produce.
 ---
 
 # Job Interview Prep
@@ -25,6 +29,8 @@ description: |
 开始前确认这几项；能从工作区/简历/记忆里读到的不要问用户：
 
 - **目标岗位**：公司 + 岗位名 + JD 原文或链接（缺了就先要 JD，JD 决定后面所有问题）
+- **地域与赛道偏好**：用户没说地域**就先问，不要默认全国**。走检索岗位流程时，
+  这一项必须先定，见 Step −1
 - **用户素材**：简历文件路径、实习/项目细节、论文课题、可公开的个人信息边界
 - **面试时间点与形式**：形式未知就走 Step 3 判定；时间点决定材料深度与取舍
 - **已面试过的岗位**：如果有上一场面经记录，复用其中的判分表和失分点
@@ -34,6 +40,34 @@ description: |
 后两者只用于补背景，不用于编造用户的经历。
 
 ## Procedure
+
+### Step −1 · 检索岗位（用户还没有 JD 时，从这里开始）
+
+用户说"帮我找岗位 / 有什么能投的 / 出一份投递清单"时，**不要直接开搜**。先做三件事：
+
+1. **定口径**（缺一项就别开始搜）：**地域** / **赛道**（最多 4 条，每条一句话定义，
+   且必须能对上用户的一段经历）/ **毕业或到岗时间窗口** / 层级（校招·实习·社招）。
+   地域**不要默认全国**——用户没说就先问。
+2. **过三条硬门槛**，一条岗位要进 A/B 档必须同时满足：
+   - **时间对得上**：毕业或到岗时间落在窗口内
+   - **专业不是硬排除**：「不限专业」通过；「××类优先」是软门槛，靠项目打穿，通过但要标出；
+     写死「仅限××专业」且无交集的**剔除**并写明
+   - **有一件事用户真做过**：JD 里能对上简历里的某个具体动作，不是"我很热爱这行"
+3. **分档而不是罗列**：A 本周就投 / B 准备 1–2 周（写清差什么）/ C 知道但不主推（写清为什么不推）。
+   排序规则是**先看用户的哪段经历能直接接住这个岗位的第一件事**，再看公司名和城市。
+
+两条不可省的诚实交代：
+
+- **空城市与剔除项必须逐条写明原因**（核查过什么、为什么是 0）。**0 条也是有效结论**，
+  比硬凑三条更有用——这一节是整份清单可信度的来源。
+- **投递链接标注三态**：实测 200 / 来源页（未点开）/ 未实测。**只说实测过的**，
+  一条失效链接会让用户当场失去对整份清单的信任。
+
+交付形态：一份**带口径声明**的岗位清单（默认 HTML；用户点名要 PDF 再转），
+九节结构与分档细则见 `references/job-search.md`。清单里每条岗位写一句「**你该用什么打**」，
+用户圈定 2–3 个之后，才进入 Step 1–9 做备考。
+
+不编造岗位、HC、薪资、截止日、链接；不替用户升级角色。
 
 ### Step 0 · 先找已有材料，不要从零起
 
@@ -158,6 +192,8 @@ description: |
 ## Output contract
 
 - 一套 HTML + A4 PDF 备考材料，目录可点击，PDF 命名目标全覆盖，无空白页
+- 若走岗位检索：一份带口径声明的岗位清单（口径声明 / 城市簇 / A·B·C 分档 /
+  沿用不删 / 空城市与剔除交代 / 链接三态核验 / 30 天动作表 / 2–3 条非显然洞察）
 - 材料内每道题都含：关键词 / 思考逻辑链 / 完整回答；结构化面试题含追问树
 - chat 里另外给一份**核心提纲**（题眼 + 站位 + 逐字稿骨架 + 高分句 + 禁语 + 追问要点），
   不要把 PDF 全文复述一遍
@@ -167,6 +203,9 @@ description: |
 ## Failure handling
 
 - **面经检索不到**：不要编。说明样本不足，按最可能的结构化形式准备，并在材料里标注假设
+- **岗位检索到大量不符，或某城市为 0**：不要用"大概没有""应该不行"糊过去。
+  逐条写明核查范围与剔除原因，并把 0 条当成结论交付；同时写清公开检索覆盖不到的部分
+  （平台内推、定向招聘），让用户知道缺口在哪
 - **用户素材缺失**：该题写三档话术 + 明确标"这里需要你补一句真实经历"
 - **公司数据口径打架**：两个来源不一致时并列写出来并注明差异，不替用户选
 - **分页不收敛**：先压间距（line-height / padding / margin），再考虑删内容；
@@ -178,6 +217,13 @@ description: |
   不要直接加页数
 
 ## Examples
+
+**Example 0 · 还没有 JD，要一份投递清单**
+输入："帮我找找有什么岗位能投，只要某城市群的。"
+产出：先定口径（地域 / 赛道 / 时间窗口 / 层级）→ 过三条硬门槛 → 一份九节岗位清单：
+口径声明、城市簇与三簇打法、A/B/C 三档、沿用不删、大厂统一入口、空城市与剔除交代、
+30 天动作表、来源三态核验、2–3 条非显然洞察。每条岗位带一句「你该用什么打」，
+方便选中后直接接 Step 1–9。
 
 **Example 1 · 单岗位全套准备**
 输入："我在面香港某中资建筑央企的港澳投资岗，JD 在这里。"
